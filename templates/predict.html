@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+
+    <title>Predict</title>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
+      crossorigin="anonymous"
+    />
+
+    <!-- Custom styles for this template -->
+    <link href="./static/css/styles.css" rel="stylesheet" />
+  </head>
+  <body class="text-center">
+    <main class="form-predict w-100 m-auto">
+      <form method="POST">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="72"
+          height="57"
+          fill="currentColor"
+          class="bi bi-heart-pulse-fill mb-4"
+          viewBox="0 0 16 16"
+        >
+          <path
+            d="M1.475 9C2.702 10.84 4.779 12.871 8 15c3.221-2.129 5.298-4.16 6.525-6H12a.5.5 0 0 1-.464-.314l-1.457-3.642-1.598 5.593a.5.5 0 0 1-.945.049L5.889 6.568l-1.473 2.21A.5.5 0 0 1 4 9H1.475Z"
+          />
+          <path
+            d="M.88 8C-2.427 1.68 4.41-2 7.823 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C11.59-2 18.426 1.68 15.12 8h-2.783l-1.874-4.686a.5.5 0 0 0-.945.049L7.921 8.956 6.464 5.314a.5.5 0 0 0-.88-.091L3.732 8H.88Z"
+          />
+        </svg>
+        <h1 class="h3 mb-3 fw-normal">Enter attributes</h1>
+        {% if data.prediction %}
+        <div class="mb-4">
+        {{ data.prediction }}
+        </div>
+        {% endif %}
+        <div class="form-floating">
+          <input
+            type="number"
+            max="150"
+            min="0"
+            class="form-control"
+            id="floatingInput"
+            placeholder="Age"
+            name="age"
+          />
+          <label for="floatingInput">Age</label>
+        </div>
+
+        <!--TODO: Add fields for other attributes-->
+        <input type="hidden" name="sex" value="0">
+        <input type="hidden" name="bp" value="1">
+        <input type="hidden" name="cholesterol" value="1">
+        <input type="hidden" name="na_to_k" value="25.355">
+
+        <button class="w-100 btn btn-lg btn-primary mt-4" type="submit">
+          Predict
+        </button>
+      </form>
+    </main>
+  </body>
+</html>
