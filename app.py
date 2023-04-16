@@ -8,7 +8,7 @@ with open("DrugPredictionModel.pkl", 'br') as model_file:
     model = pickle.load(model_file)
     model:DecisionTreeClassifier
     
-@app.route('/predict', methods=["GET", "POST"])
+@app.route('/', methods=["GET", "POST"])
 def predict():
     if request.method == "POST":
         try:
@@ -27,4 +27,4 @@ def predict():
     return render_template("predict.html", data={})
     
 if __name__ == '__main__':
-    app.run("0.0.0.0", 5000, debug=True)
+    app.run("localhost", 5000, debug=True)
