@@ -25,7 +25,7 @@
           width="72"
           height="57"
           fill="currentColor"
-          class="bi bi-heart-pulse-fill mb-4"
+          class="bi bi-heart-pulse-fill mb-2"
           viewBox="0 0 16 16"
         >
           <path
@@ -36,12 +36,12 @@
           />
         </svg>
         <h1 class="h3 mb-3 fw-normal">Enter attributes</h1>
+        <!--TODO: Add a flash box for this-->
         {% if data.prediction %}
-        <div class="mb-4">
-        {{ data.prediction }}
-        </div>
+        <div class="mb-4">{{ data.prediction }}</div>
         {% endif %}
-        <div class="form-floating">
+
+        <div class="form-floating mb-2">
           <input
             type="number"
             max="150"
@@ -50,15 +50,49 @@
             id="floatingInput"
             placeholder="Age"
             name="age"
+            required
           />
           <label for="floatingInput">Age</label>
         </div>
 
-        <!--TODO: Add fields for other attributes-->
-        <input type="hidden" name="sex" value="0">
-        <input type="hidden" name="bp" value="1">
-        <input type="hidden" name="cholesterol" value="1">
-        <input type="hidden" name="na_to_k" value="25.355">
+        <div class="form-floating mb-2">
+          <select class="form-select" name="sex" required>
+            <option value="1">Male</option>
+            <option value="0">Female</option>
+          </select>
+          <label for="floatingInput">Sex</label>
+        </div>
+
+        <div class="form-floating mb-2">
+          <select class="form-select" name="bp" required>
+            <option value="1">High</option>
+            <option value="0">Low</option>
+          </select>
+          <label for="floatingInput">Blood Pressure</label>
+        </div>
+
+        <div class="form-floating mb-2">
+          <select class="form-select" name="cholesterol" required>
+            <option value="1">High</option>
+            <option value="0">Low</option>
+          </select>
+          <label for="floatingInput">Cholesterol</label>
+        </div>
+
+        <div class="form-floating mb-2">
+          <input
+            type="number"
+            step="0.01"
+            max="150"
+            min="0"
+            class="form-control"
+            id="floatingInput"
+            placeholder="Na to K"
+            name="na_to_k"
+            required
+          />
+          <label for="floatingInput">Na to K</label>
+        </div>
 
         <button class="w-100 btn btn-lg btn-primary mt-4" type="submit">
           Predict
