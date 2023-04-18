@@ -1,5 +1,5 @@
 **// No Pull requests are accepted //**
-### A flask app that uses a Machine learning model to predict effective medicine by some parameter like blood pressure and Age
+### A flask app that uses a Machine learning model to predict effective medicine by some parameters like blood pressure and Age
 
 - Machine learning
 - Classification 
