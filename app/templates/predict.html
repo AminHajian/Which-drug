@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+
+    <title>Predict</title>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
+      crossorigin="anonymous"
+    />
+
+    <!-- Custom styles for this template -->
+    <link href="./static/css/styles.css" rel="stylesheet" />
+  </head>
+  <body class="text-center">
+    <main class="form-predict w-100 m-auto">
+      <form method="POST">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="72"
+          height="57"
+          fill="currentColor"
+          class="bi bi-heart-pulse-fill mb-2"
+          viewBox="0 0 16 16"
+        >
+          <path
+            d="M1.475 9C2.702 10.84 4.779 12.871 8 15c3.221-2.129 5.298-4.16 6.525-6H12a.5.5 0 0 1-.464-.314l-1.457-3.642-1.598 5.593a.5.5 0 0 1-.945.049L5.889 6.568l-1.473 2.21A.5.5 0 0 1 4 9H1.475Z"
+          />
+          <path
+            d="M.88 8C-2.427 1.68 4.41-2 7.823 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C11.59-2 18.426 1.68 15.12 8h-2.783l-1.874-4.686a.5.5 0 0 0-.945.049L7.921 8.956 6.464 5.314a.5.5 0 0 0-.88-.091L3.732 8H.88Z"
+          />
+        </svg>
+        <h1 class="h3 mb-4 fw-normal">Enter attributes</h1>
+
+        {% if data.prediction %}
+        <div class="alert alert-success mb-4" role="alert">{{ data.prediction }}</div>
+        {% endif %}
+        {% if data.error %}
+        <div class="alert alert-danger mb-4" role="alert">{{ data.error }}</div>
+        {% endif %}
+
+        <div class="form-floating mb-2">
+          <input
+            type="number"
+            max="150"
+            min="0"
+            class="form-control"
+            id="floatingInput"
+            placeholder="Age"
+            name="age"
+            required
+          />
+          <label for="floatingInput">Age</label>
+        </div>
+
+        <div class="form-floating mb-2">
+          <select class="form-select" name="sex" required>
+            <option value="1">Male</option>
+            <option value="0">Female</option>
+          </select>
+          <label for="floatingInput">Sex</label>
+        </div>
+
+        <div class="form-floating mb-2">
+          <select class="form-select" name="bp" required>
+            <option value="1" selected>Normal</option>
+            <option value="2">High</option>
+            <option value="0">Low</option>
+          </select>
+          <label for="floatingInput">Blood Pressure</label>
+        </div>
+
+        <div class="form-floating mb-2">
+          <select class="form-select" name="cholesterol" required>
+            <option value="1" selected>Normal</option>
+            <option value="2">High</option>
+            <option value="0">Low</option>
+          </select>
+          <label for="floatingInput">Cholesterol</label>
+        </div>
+
+        <div class="form-floating mb-2">
+          <input
+            type="number"
+            step="0.01"
+            max="150"
+            min="0"
+            class="form-control"
+            id="floatingInput"
+            placeholder="Na to K"
+            name="na_to_k"
+            required
+          />
+          <label for="floatingInput">Na to K</label>
+        </div>
+
+        <button class="w-100 btn btn-lg btn-primary mt-4" type="submit">
+          Predict
+        </button>        
+      </form>
+
+      <!-- Button trigger modal -->
+      <button type="button" class="btn btn-secondary mt-2" data-bs-toggle="modal" data-bs-target="#descriptionsModal">
+        How it works
+      </button>
+
+      <!-- Modal -->
+      <div class="modal fade" id="descriptionsModal" tabindex="-1" aria-labelledby="descriptionsModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="descriptionsModalLabel">How it works</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <img src="./static/drugtree.png" class="img-fluid" alt="...">
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+  </body>
+</html>
